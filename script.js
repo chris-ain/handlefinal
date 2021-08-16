@@ -1,4 +1,15 @@
 
+//INTRO//
+
+gsap.registerPlugin(ScrollTrigger);
+
+//MAIN//
+
+
+
+//LOCOMOTIVE//
+
+
 window.addEventListener("load", () => {
   function lerp (start, end, amt){
       return (1 - amt) * start + amt * end *.5;
@@ -21,7 +32,191 @@ window.addEventListener("load", () => {
       passive: true,
   });
 
-  const useNativeScroll = smoothScroll.isMobile;
+
+
+
+// // REVEAL //
+
+smoothScroll.on("scroll", ScrollTrigger.update);
+
+ScrollTrigger.scrollerProxy(".smooth-scroll", {
+	scrollTop(value) {
+		return arguments.length
+			? smoothScroll.scrollTo(value, 0, 0)
+			: smoothScroll.scroll.instance.scroll.y;
+	},
+	getBoundingClientRect() {
+		return {
+			top: 0,
+			left: 0,
+			width: window.innerWidth,
+			height: window.innerHeight
+		};
+	},
+
+	pinType: document.querySelector(".smooth-scroll").style.transform
+		? "transform"
+		: "fixed"
+});
+
+ScrollTrigger.addEventListener("refresh", () => smoothScroll.update());
+
+ScrollTrigger.refresh();
+
+gsap.to(".panel", {
+	scaleY: 0,
+	duration: 1.65,
+	ease: "power4.inOut"
+});
+
+const splitName = document.querySelectorAll(".h1_chars")
+// const splitJL = new SplitText(".JL", {
+// 	type: "chars"
+// });
+
+const nameTL = gsap.timeline();
+
+nameTL
+	.set("h1", { scale: 1.4 })
+	.from(splitName, {
+		yPercent: gsap.utils.wrap([200, -80]),
+		opacity: 0,
+		stagger: 0.018,
+		duration: 1.6,
+		ease: "power4.inOut"
+	})
+	.to("h1", { scale: 1, duration: 0.95, ease: "power3.out" }, "-=0.75")
+	.from(".hero", { opacity: 0, duration: 4, ease: "power2.out" }, "-=0.55");
+
+
+
+
+
+  //SEC IMAGE//
+
+// const tl = gsap.timeline({
+// 	scrollTrigger: {
+// 		trigger: ".sec-img",
+// 		// markers: true,
+// 		scrub: 0.4,
+// 		scroller: ".smooth-scroll",
+// 		pin: true,
+// 		start: "center center",
+// 		end: "+=100%"
+// 	}
+// });
+
+// tl
+// 	.to(".mask", {
+// 		scaleY: 0
+// 	})
+// 	// .from(
+// 	// 	splitJL.chars,
+// 	// 	{
+// 	// 		opacity: 0,
+// 	// 		x: -100,
+// 	// 		stagger: 0.015
+// 	// 	},
+// 	// 	0
+// 	// )
+// 	.from(
+// 		".img",
+// 		{
+// 			opacity: 0,
+// 			scale: 1.7
+// 		},
+// 		0
+// 	);
+
+
+  // MASK REVEAL//
+
+
+// const quoteText = document.querySelectorAll('.quote p');
+
+// gsap.set(quoteText, {autoAlpha: 0});
+// gsap.to('.overlay', {
+//   duration: 2,
+//   scale: 90,
+//   autoAlpha: 0,
+//   ease: 'power2.in',
+//   scrollTrigger: {
+//     trigger: '#container',
+//     scroller: ".smooth-scroll",
+//     start: 'top top',
+//     end: '+=2000',
+//     anticipatePin: true,
+//     pin: true,
+//     scrub: true,
+//   }
+// });
+// gsap.fromTo(quoteText, { autoAlpha: 0 },
+//             {
+//   duration: 3,
+//   autoAlpha: 1,
+//   stagger: {
+//     amount: 1
+//   },
+//   ease: 'expo.inOut',
+//   scrollTrigger: {
+//     scroller: ".smooth-scroll",
+//     trigger: '.quote',
+//     start: 'bottom top',
+//     end: '+=1500',
+//     scrub: true,
+//   }
+// });
+
+/* Copyright (c) 2020 by Craig Roblewsky (https://codepen.io/PointC/pen/KRWgOK) for code used below */
+//const svg = document.querySelector("#overlay");
+const ratio = 0.5625;
+
+function newSize() {
+  let w = window.innerWidth;
+  let h = window.innerHeight;
+  if (w > h * (16 / 9)) {
+    gsap.set("#pin-overlay", { attr: { width: w, height: w * ratio } });
+  } else {
+    gsap.set("#pin-overlay", { attr: { width: h / ratio, height: h } });
+  }
+  //let data = svg.getBoundingClientRect();
+  //gsap.set("#overlay", {x:w/2 - data.width/2});
+  //gsap.set("#overlay", {y:h/2 - data.height/2});
+}
+
+newSize();
+window.addEventListener("resize", newSize);
+
+
+///
+
+// gsap.from("p", {
+// 	scrollTrigger: {
+// 		trigger: ".sec-p",
+// 		// markers: true,
+// 		start: "top center",
+// 		scroller: ".smooth-scroll",
+// 		toggleActions: "play none none reverse"
+// 	},
+// 	opacity: 0,
+// 	y: 50,
+// 	duration: 1,
+// 	ease: "power3.out"
+// });
+
+
+
+
+
+
+
+
+    
+// CURTAINS
+    
+    
+    
+    const useNativeScroll = smoothScroll.isMobile;
 
   // set up our WebGL context and append the canvas to our wrapper
   const curtains = new Curtains({
@@ -29,6 +224,9 @@ window.addEventListener("load", () => {
       watchScroll: useNativeScroll, // watch scroll on mobile not on desktop since we're using locomotive scroll
       pixelRatio: Math.min(1.5, window.devicePixelRatio) // limit pixel ratio for performance
   });
+
+
+  
 
 
 
@@ -113,7 +311,7 @@ window.addEventListener("load", () => {
       vec3 vertexPosition = aVertexPosition;
 
       // cool effect on scroll
-      vertexPosition.x -= sin(((vertexPosition.y + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 50.0));
+      vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 100.0));
 
       gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
 
@@ -195,7 +393,7 @@ plane && plane.onLoading(function () {
   plane.uniforms.planeDeformation.value = planesDeformations;
 
   //plane.setScale(1, 1 + Math.abs(scrollEffect) / 500);
-  plane.textures[0].setScale(1 + Math.abs(scrollEffect) / 500);
+  plane.textures[0].setScale(new Vec2(1 + Math.abs(scrollEffect) / 500));
 });
 }
 
@@ -212,9 +410,9 @@ plane && plane.onLoading(function () {
   void main() {
       vec2 textureCoords = vTextureCoord;
 
-      vec2 redTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 00.0);
-      vec2 greenTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 0000.0);
-      vec2 blueTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 0000.0);
+      vec2 redTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 400.0);
+      vec2 greenTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 3000.0);
+      vec2 blueTextCoords = vec2(vTextureCoord.x, vTextureCoord.y - uScrollEffect / 3000.0);
 
       vec4 red = texture2D(uRenderTexture, redTextCoords);
       vec4 green = texture2D(uRenderTexture, greenTextCoords);
@@ -249,3 +447,9 @@ if(rgbPass) {
 }
 });
  
+
+
+
+
+
+
