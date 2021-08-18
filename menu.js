@@ -205,7 +205,8 @@ class Transition {
 			uniform bool uOut;
   
 			vec4 transparent = vec4(0., 0., 0., 0.);
-			vec4 black = vec4(0.0, 1.0, 1.0, 1.);
+					  vec4 black = vec4(0., 0., 0., 1.);
+
   
 			#define M_PI 3.1415926535897932384626433832795
   
