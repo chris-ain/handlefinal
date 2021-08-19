@@ -175,8 +175,7 @@ if(!useNativeScroll) {
             vertexPosition.y +=  distortionEffect * transition * (uMousePosition.y - vertexPosition.y);
 
 
-    //   // cool effect on scroll
-    //   vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 100.0));
+    vertexPosition.y += sin(((vertexPosition.x + 1.0) / 2.0) * 3.141592) * (sin(uPlaneDeformation / 100.0));
 
 
             gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
