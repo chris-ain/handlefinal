@@ -175,7 +175,7 @@ const ratio = 0.5625;
   //let data = svg.getBoundingClientRect();
   //gsap.set("#overlay", {x:w/2 - data.width/2});
   //gsap.set("#overlay", {y:h/2 - data.height/2});
-}
+
 
 newSize();
 window.addEventListener("resize", newSize);
