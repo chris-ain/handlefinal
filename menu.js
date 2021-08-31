@@ -4,7 +4,6 @@
 var $hamburger = $('.button');
 gsap.set('.navwrapper',{y:1000});  
 gsap.set('.navitems',{opacity:0, y:20});  
-gsap.set('.line_menu',{scaleY:0});
 gsap.set('.sm_menu',{opacity:0})
 
 // var hamburgerMotion = new gsap.timeline()
@@ -78,7 +77,6 @@ class Transition {
 					.to('.navwrapper', {opacity: 1, y:0,  duration:0, stagger: .1,},0)
 
 					.to('.navitems', {opacity: 1, y:0,  duration:.5, delay:.4, stagger: .1,},0)
-					.to('.line_menu', {scaleY:1,  delay: .4, duration:1  },0)
 					.to('.sm_menu', {opacity:100,  delay:0, duration:.5  },0)
 
 					.add(() => {
@@ -117,7 +115,6 @@ class Transition {
 						0
 					)
 					.to('.navitems', {opacity: 0, y:20,   duration:.5, delay:0, stagger: .1,},0)
-					.to('.line_menu', {scaleY:0,  delay: .2, duration:.5  },0)
 					.to('.sm_menu', {opacity:0,  delay:0, duration:.5  },0)
 					.to('.navwrapper', {opacity: 1, y:-1000,  duration:0, delay:.8, stagger: .1,},0)
 
