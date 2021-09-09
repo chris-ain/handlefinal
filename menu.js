@@ -114,9 +114,9 @@ class Transition {
 						},
 						0
 					)
-					.to('.navitems', {opacity: 0, y:20,   duration:.5, delay:0, stagger: .1,},0)
+					.to('.navitems', {opacity: 0, y:20,   duration:.5, delay:0,},0)
 					.to('.sm_menu', {opacity:0,  delay:0, duration:.5  },0)
-					.to('.navwrapper', {opacity: 1, y:-1000,  duration:0, delay:.8, stagger: .1,},0)
+					.to('.navwrapper', {opacity: 1, y:-1000,  duration:0, delay:.8,},0)
 
 					.set(uOut, { value: true })
 					.add(() => {
