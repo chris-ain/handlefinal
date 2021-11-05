@@ -1,0 +1,225 @@
+{
+    "asset": {
+        "copyright": "2020 (c) Adobe Inc.",
+        "generator": "Adobe Dimension - 611127eacd250f22943d21b3c2c9dbaa3a0ef9a2",
+        "version": "2.0"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 15187,
+            "type": "VEC3",
+            "max": [
+                0.06722305715084076,
+                0.05935728922486305,
+                0.01051957905292511
+            ],
+            "min": [
+                0.004273709841072559,
+                -0.0021316499914973976,
+                -0.05323401838541031
+            ]
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 15187,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 15187,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5125,
+            "count": 46974,
+            "type": "SCALAR",
+            "max": [
+                15186.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 182244,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 182244,
+            "byteLength": 182244,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 364488,
+            "byteLength": 121496,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 485984,
+            "byteLength": 187896,
+            "target": 34963
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 673880,
+            "uri": "handlecube_binary.bin"
+        }
+    ],
+    "cameras": [
+        {
+            "perspective": {
+                "znear": 0.000010000000656873454,
+                "yfov": 0.6024156808853149,
+                "zfar": 2.0,
+                "aspectRatio": 1.3333333730697632
+            },
+            "type": "perspective",
+            "name": "render_camera"
+        }
+    ],
+    "images": [
+        {
+            "name": "basecolor_image_texture",
+            "uri": "handlecube_images/basecolor_image_texture.jpg",
+            "mimeType": "image/jpeg"
+        },
+        {
+            "name": "normal_image_texture",
+            "uri": "handlecube_images/normal_image_texture.png",
+            "mimeType": "image/png"
+        }
+    ],
+    "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 0,
+                    "extensions": {
+                        "KHR_texture_transform": {
+                            "offset": [
+                                0,
+                                -20.200000762939454
+                            ],
+                            "rotation": 0,
+                            "scale": [
+                                21.200000762939454,
+                                21.200000762939454
+                            ]
+                        }
+                    }
+                },
+                "roughnessFactor": 0.0
+            },
+            "normalTexture": {
+                "index": 1,
+                "extensions": {
+                    "KHR_texture_transform": {
+                        "offset": [
+                            0,
+                            -20.200000762939454
+                        ],
+                        "rotation": 0,
+                        "scale": [
+                            21.200000762939454,
+                            21.200000762939454
+                        ]
+                    }
+                }
+            },
+            "name": "Geriffeltes Aluminium",
+            "doubleSided": true
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Curve.006_Curve.007",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    },
+                    "indices": 3,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "translation": [
+                -0.3586704432964325,
+                0.1951463669538498,
+                0.135200634598732
+            ],
+            "rotation": [
+                -0.055526621639728549,
+                -0.5131170749664307,
+                -0.033289555460214618,
+                0.8558735251426697
+            ],
+            "camera": 0,
+            "name": "render_camera_n3d"
+        },
+        {
+            "translation": [
+                -0.027674145996570588,
+                0.0059207407757639889,
+                -0.0875183492898941
+            ],
+            "scale": [
+                2.777539014816284,
+                2.777539014816284,
+                2.777539014816284
+            ],
+            "mesh": 0,
+            "name": "Curve.006_Curve.007"
+        }
+    ],
+    "samplers": [
+        {},
+        {}
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0,
+                1
+            ],
+            "name": "scene"
+        }
+    ],
+    "textures": [
+        {
+            "name": "basecolor_image_texture",
+            "sampler": 0,
+            "source": 0
+        },
+        {
+            "name": "normal_image_texture",
+            "sampler": 1,
+            "source": 1
+        }
+    ],
+    "scene": 0,
+    "extensionsUsed": [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired": [
+        "KHR_texture_transform"
+    ]
+}
