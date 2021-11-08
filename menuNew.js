@@ -153,3 +153,5 @@ const closeMenu = ()  => {
 openMenuCtrl.addEventListener('click', openMenu);
 // click on close menu button
 closeMenuCtrl.addEventListener('click', closeMenu);
+
+
