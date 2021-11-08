@@ -1,5 +1,4 @@
 import { preloadImages } from './utils';
-import { gsap } from 'gsap';
 
 // preload images then remove loader (loading class) 
 preloadImages('.tiles__line-img').then(() => document.body.classList.remove('loading'));
